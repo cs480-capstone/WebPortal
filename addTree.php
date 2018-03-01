@@ -41,7 +41,7 @@ if(isset($_REQUEST['Species']) && isset($_REQUEST['Decorators']) && isset($_REQU
     echo $latitude;
     echo $longitude;
 
-    $query="INSERT INTO Trees (Species, Decorators, latitude, longitude, hiddenT) VALUES ('$species', '$decorators', '$latitude', '$longitude', '0')";
+    $query="INSERT INTO Trees (Species, Decorators, latitude, longitude, hidden) VALUES ('$species', '$decorators', '$latitude', '$longitude', '1')";
 
     $result = mysqli_query($con, $query);
 
