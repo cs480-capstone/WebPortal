@@ -17,16 +17,21 @@
             <input type="text" name="longitude"> <br>
             <input type="submit" value="Add Tree">
         </form></div>
-        
+        <h1 style="text-align: center">Press Here to Generate Tree List</h1>
+        <a href="treeList.php"><div style="text-align: center"><button id="button4" type="button">Generate Tree List</button></div></a>
+        <h1 style="text-align: center">Press Here to Delete a Tree from the Database</h1>
+        <a href="deleteTree.php"><div style="text-align: center"><button id="button2" type="button">Delete A Tree</button><div></a>
+        <h1 style="text-align: center">Press Here to Generate a Data File</h1>
+        <a href="dataForm.php"><div style="text-align: center"><button id="button3" type="button">Generate Data File</button><div></a>
     </body>
 </html>
 
 <?php
 
-$servername = "";
-$username = "";
-$password = "";
-$dbname = "";
+$servername = "testdatabase.c2uw4uu5co9m.us-west-2.rds.amazonaws.com";
+$username = "lukewarm11";
+$password = "Leel1995!";
+$dbname = "testdb";
 
 $con = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -36,19 +41,18 @@ if(isset($_REQUEST['Species']) && isset($_REQUEST['Decorators']) && isset($_REQU
     $latitude = $_POST['latitude'];
     $longitude =  $_POST['longitude'];
 
-    echo $species;
-    echo $decorators;
-    echo $latitude;
-    echo $longitude;
-
     $query="INSERT INTO Trees (Species, Decorators, latitude, longitude, hidden) VALUES ('$species', '$decorators', '$latitude', '$longitude', '1')";
 
     $result = mysqli_query($con, $query);
 
     $con->close();
 
+    echo '<script type="text/javascript">alert("Successfully added a new tree!");</script>';
+
 } //else {
     //die('Some information was missing!');
 //}
+
+
 
 ?>

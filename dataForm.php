@@ -1,13 +1,13 @@
 <?php
     if(isset($_GET['Generate'])){
-        $servername = "";
-        $username = "";
-        $password = "";
-        $dbname = "";
+        $servername = "testdatabase.c2uw4uu5co9m.us-west-2.rds.amazonaws.com";
+        $username = "lukewarm11";
+        $password = "Leel1995!";
+        $dbname = "testdb";
         
         $con = mysqli_connect($servername, $username, $password, $dbname);
 
-        $sql="SELECT * FROM Entries";
+        $sql="SELECT * FROM Entry";
 
         $query = mysqli_query($con, $sql);
 
@@ -51,6 +51,8 @@
     <div style="text-align: center"><form><input type="submit" action='' name="Generate" value="Generate"></form></div>
     <h1 style="text-align: center">Press Here to Add A Tree to the Database</h1>
     <a href="addTree.php"><div style="text-align: center"><button id="button2" type="button">Add New Tree</button></div></a>
+    <h1 style="text-align: center">Press Here to Delete A Tree from the Database</h1>
+    <a href="deleteTree.php"><div style="text-align: center"><button id="button3" type="button">Delete a Tree</button></div></a>
     
 </body>
 </html>
